@@ -1,4 +1,5 @@
 streamlit
 langchain-google-genai
+google-generativeai
 dotenv
 os
