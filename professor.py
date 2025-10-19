@@ -20,7 +20,7 @@ api_key=api_key)
 with c1:
   tema = st.text_input('Coloque o tema:', width=400)
   st.markdown('---')
-  colocar = st.text_area('Coloque a redação:', height=450)
+  colocar = st.text_area('Coloque a redação:', height=300)
   enviar = st.button('Enviar')
   prompt = f'''
 Analise a redação enviada na caixa de texto sobre o tema: {tema}.
