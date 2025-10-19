@@ -1,11 +1,14 @@
 from langchain_google_genai import GoogleGenerativeAI
 import streamlit as st
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+try:
+  api_key = st.secrets('GOOGLE_API_KEY')
+except KeyError:
+  from dotenv import load_dotenv
+  load_dotenv()
+  api_key = os.getenv('GOOGLE_API_KEY')
 
-api_key = os.getenv('GOOGLE_API_KEY')
 
 st.set_page_config(layout='wide', page_title='Redação')
 
@@ -20,7 +23,7 @@ api_key=api_key)
 with c1:
   tema = st.text_input('Coloque o tema:', width=400)
   st.markdown('---')
-  colocar = st.text_input('Coloque sua redação:')
+  colocar = st.text_area('Coloque a redação:', height=100)
   enviar = st.button('Enviar')
   prompt = f'''
 Analise a redação enviada na caixa de texto sobre o tema: {tema}.
