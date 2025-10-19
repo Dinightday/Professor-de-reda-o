@@ -2,10 +2,8 @@ from langchain_google_genai import GoogleGenerativeAI
 import streamlit as st
 import os
 
-try:
-  api_key = st.secrets('GOOGLE_API_KEY')
-except TypeError:
-  api_key = os.getenv('GOOGLE_API_KEY')
+
+api_key = st.secrets('GOOGLE_API_KEY')
 
 st.set_page_config(layout='wide', page_title='Redação')
 
